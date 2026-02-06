@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Tracker Pro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>⏱️ Time Tracker Pro</h1>
+      <div class="timer-display-zone">
+        <div id="active-timer-display">No active timer</div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="left-column">
+        <section class="section-panel">
+          <h2>Task Management</h2>
+          <div class="action-bar">
+            <button id="btn-create-task" class="btn-primary">+ New Task</button>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Task Name</th>
+                <th>Project</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="task-table-body">
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section-panel">
+          <h2>Project Management</h2>
+          <div class="action-bar">
+            <button id="btn-create-project" class="btn-primary">+ New Project</button>
+          </div>
+          <div id="project-list"></div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="section-panel">
+          <h2>Time Summary</h2>
+          <div class="summary-container">
+            <div class="summary-section">
+              <h3>By Project</h3>
+              <div id="summary-by-project"></div>
+            </div>
+            
+            <div class="summary-section">
+              <h3>By Task</h3>
+              <div id="summary-by-task"></div>
+            </div>
+            
+            <div class="summary-section">
+              <h3>By Task within Project</h3>
+              <div id="summary-by-task-in-project"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Project Dialog -->
+  <div id="project-dialog" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>Create New Project</h3>
+      <div class="form-group">
+        <label for="project-name-input">Project Name (max 50 characters):</label>
+        <input type="text" id="project-name-input" maxlength="50" placeholder="Enter project name">
+      </div>
+      <div class="modal-actions">
+        <button id="btn-save-project" class="btn-success">Save</button>
+        <button id="btn-cancel-project" class="btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Dialog -->
+  <div id="task-dialog" class="modal-overlay hidden">
+    <div class="modal-content">
+      <h3>Create New Task</h3>
+      <div class="form-group">
+        <label for="task-name-input">Task Name (max 50 characters):</label>
+        <input type="text" id="task-name-input" maxlength="50" placeholder="Enter task name">
+      </div>
+      <div class="form-group">
+        <label for="task-project-select">Project:</label>
+        <select id="task-project-select"></select>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-save-task" class="btn-success">Save</button>
+        <button id="btn-cancel-task" class="btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="timeUtils.js"></script>
+  <script src="storage.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
